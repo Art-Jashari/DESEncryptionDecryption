@@ -1,2 +1,2 @@
-# RSAEncryptionDecryption
-RSA Encryption &amp; Decryption program developed in Java.
+# DESEncryptionDecryption
+DES Encryption &amp; Decryption program developed in Java.
