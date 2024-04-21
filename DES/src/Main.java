@@ -55,7 +55,7 @@ public class Main {
                     }
                     System.out.println("Mesazhi i enkriptuar është ruajtur në 'mesazhi_enkriptuar.txt'.");
                 }
-                else{
+                else if(option.equalsIgnoreCase("mesazh")){
                     System.out.print("Shkruani mesazhin që dëshironi të enkriptoni: ");
                     String message = scanner.nextLine();
                     cipher.init(Cipher.ENCRYPT_MODE, key);
@@ -63,7 +63,7 @@ public class Main {
                     String encryptedHex = DatatypeConverter.printHexBinary(encryptedBytes);
                     System.out.println("Mesazhi i Enkriptuar (Hex): " + encryptedHex);
                 }
-            } else {
+            } else if((mode.equalsIgnoreCase("dekripto"))) {
                 System.out.print("Doni të dekriptoni nga file apo ta shenoni mesazhin? (file/mesazh) ");
                 String option = scanner.nextLine().trim();
                 if (option.equalsIgnoreCase("file")) {
@@ -81,7 +81,7 @@ public class Main {
                 }
                 System.out.println("Mesazhi i dekriptuar është ruajtur në 'mesazhi_dekriptuar.txt'.");
             }
-                else {
+                else if(option.equalsIgnoreCase("mesazh")) {
                     // Dekripto mesazhin
                     System.out.print("Shkruani mesazhin e enkriptuar (hex): ");
                     String encryptedHex = scanner.nextLine();
