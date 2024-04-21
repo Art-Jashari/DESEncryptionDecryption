@@ -64,7 +64,9 @@ public class Main {
                     System.out.println("Mesazhi i Enkriptuar (Hex): " + encryptedHex);
                 }
             } else {
-
+                System.out.print("Doni të dekriptoni nga file apo ta shenoni mesazhin? (file/mesazh) ");
+                String option = scanner.nextLine().trim();
+                if (option.equalsIgnoreCase("file")) {
                 // Dekripto mesazhin
                 System.out.print("Shkruani path-in e file-it të enkriptuar (hex): ");
                 String filePath = scanner.nextLine();
@@ -79,11 +81,5 @@ public class Main {
                 }
                 System.out.println("Mesazhi i dekriptuar është ruajtur në 'mesazhi_dekriptuar.txt'.");
             }
-        } catch (Exception e) {
-            System.err.println("Ndodhi një gabim: " + e.getMessage());
-            e.printStackTrace();
-        } finally {
-            scanner.close();
-        }
     }
 }
