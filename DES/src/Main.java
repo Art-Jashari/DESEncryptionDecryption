@@ -38,21 +38,33 @@ public class Main {
             Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
 
             if (mode.equalsIgnoreCase("enkripto")) {
-                // Enkripto mesazhin
-                System.out.print("Shkruani path-in e file-it që dëshironi të enkriptoni: ");
-                String filePath = scanner.nextLine();
-                byte[] fileContent = Files.readAllBytes(Paths.get(filePath));
-                cipher.init(Cipher.ENCRYPT_MODE, key);
-                byte[] encryptedBytes = cipher.doFinal(fileContent);
-                String encryptedHex = DatatypeConverter.printHexBinary(encryptedBytes);
+                System.out.print("Doni të enkriptoni nga file apo ta shenoni mesazhin? (file/mesazh) ");
+                String option = scanner.nextLine().trim();
+                if (option.equalsIgnoreCase("file")) {
+                    // Enkripto mesazhin
+                    System.out.print("Shkruani path-in e file-it që dëshironi të enkriptoni: ");
+                    String filePath = scanner.nextLine();
+                    byte[] fileContent = Files.readAllBytes(Paths.get(filePath));
+                    cipher.init(Cipher.ENCRYPT_MODE, key);
+                    byte[] encryptedBytes = cipher.doFinal(fileContent);
+                    String encryptedHex = DatatypeConverter.printHexBinary(encryptedBytes);
 
-                // Saving encrypted message to file
-                try (FileOutputStream out = new FileOutputStream("mesazhi_enkriptuar.txt")) {
-                    out.write(encryptedHex.getBytes());
+                    // Saving encrypted message to file
+                    try (FileOutputStream out = new FileOutputStream("mesazhi_enkriptuar.txt")) {
+                        out.write(encryptedHex.getBytes());
+                    }
+                    System.out.println("Mesazhi i enkriptuar është ruajtur në 'mesazhi_enkriptuar.txt'.");
                 }
-                System.out.println("Mesazhi i enkriptuar është ruajtur në 'mesazhi_enkriptuar.txt'.");
-
+                else{
+                    System.out.print("Shkruani mesazhin që dëshironi të enkriptoni: ");
+                    String message = scanner.nextLine();
+                    cipher.init(Cipher.ENCRYPT_MODE, key);
+                    byte[] encryptedBytes = cipher.doFinal(message.getBytes("UTF-8"));
+                    String encryptedHex = DatatypeConverter.printHexBinary(encryptedBytes);
+                    System.out.println("Mesazhi i Enkriptuar (Hex): " + encryptedHex);
+                }
             } else {
+
                 // Dekripto mesazhin
                 System.out.print("Shkruani path-in e file-it të enkriptuar (hex): ");
                 String filePath = scanner.nextLine();
