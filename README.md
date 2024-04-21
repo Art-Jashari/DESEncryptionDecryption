@@ -2,19 +2,19 @@
 
 ## University Details
 - **University**: University of Prishtina "Hasan Prishtina"
-- **Faculty**: Faculty of Electrical Engineering
-- **Department**: Software Engineering Class
+- **Faculty**: Faculty of Electrical and Computer Enigneering
+- **Department**: Computer and Software Engineering
 - **Course**: Data Security 
 - **Semester**: 4th Semester
 
 ## Project Title
-File and String Encryption/Decryption using DES Algorithm using Java
+File and String Encryption/Decryption using DES Algorithm implemented in Java
 
 ## Contributors
 - [Art Kelmendi](<https://github.com/artkelmendi>)
 - [Art Jashari](<https://github.com/Art-Jashari>)
 - [Artin Rexhepi](<https://github.com/artin-rexhepi>)
-- [Armenije Sadikaj](<link-to-github-profile>)
+- [Armenije Sadikaj](<https://github.com/armeniasadikaj>)
 
 ## Supervisor
 - **Professor**: Blerim Rexha
