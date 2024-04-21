@@ -81,5 +81,22 @@ public class Main {
                 }
                 System.out.println("Mesazhi i dekriptuar është ruajtur në 'mesazhi_dekriptuar.txt'.");
             }
+                else {
+                    // Dekripto mesazhin
+                    System.out.print("Shkruani mesazhin e enkriptuar (hex): ");
+                    String encryptedHex = scanner.nextLine();
+                    cipher.init(Cipher.DECRYPT_MODE, key);
+                    byte[] decryptedBytes = cipher.doFinal(DatatypeConverter.parseHexBinary(encryptedHex));
+                    String decryptedMessage = new String(decryptedBytes, "UTF-8");
+                    System.out.println("Mesazhi i Dekriptuar: " + decryptedMessage);
+                }
+            }
+
+        } catch (Exception e) {
+            System.err.println("Ndodhi një gabim: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            scanner.close();
+        }
     }
 }
