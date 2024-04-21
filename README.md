@@ -16,7 +16,7 @@ File and String Encryption/Decryption using DES Algorithm implemented in Java
 - [Artin Rexhepi](<https://github.com/artin-rexhepi>)
 - [Armenije Sadikaj](<https://github.com/armeniasadikaj>)
 
-## Supervisor
+## Supervisors
 - **Professor**: Blerim Rexha
 - **Assistent**: Mergim Hoti
 
