@@ -67,28 +67,36 @@ public class DESAlgorithm {
                 System.out.print("Doni të dekriptoni nga file apo ta shenoni mesazhin? (file/mesazh) ");
                 String option = scanner.nextLine().trim();
                 if (option.equalsIgnoreCase("file")) {
-                // Dekripto mesazhin
-                System.out.print("Shkruani path-in e file-it të enkriptuar (hex): ");
-                String filePath = scanner.nextLine();
-                String encryptedHex = new String(Files.readAllBytes(Paths.get(filePath)));
-                cipher.init(Cipher.DECRYPT_MODE, key);
-                byte[] decryptedBytes = cipher.doFinal(DatatypeConverter.parseHexBinary(encryptedHex));
-                String decryptedMessage = new String(decryptedBytes, "UTF-8");
+                    // Dekripto mesazhin
+                    System.out.print("Shkruani path-in e file-it të enkriptuar (hex): ");
+                    String filePath = scanner.nextLine();
+                    String encryptedHex = new String(Files.readAllBytes(Paths.get(filePath)));
+                    cipher.init(Cipher.DECRYPT_MODE, key);
+                    byte[] decryptedBytes = cipher.doFinal(DatatypeConverter.parseHexBinary(encryptedHex));
+                    String decryptedMessage = new String(decryptedBytes, "UTF-8");
 
-                // Saving decrypted message to file
-                try (FileOutputStream out = new FileOutputStream("mesazhi_dekriptuar.txt")) {
-                    out.write(decryptedMessage.getBytes());
+                    // Saving decrypted message to file
+                    try (FileOutputStream out = new FileOutputStream("mesazhi_dekriptuar.txt")) {
+                        out.write(decryptedMessage.getBytes());
+                    }
+                    System.out.println("Mesazhi i dekriptuar është ruajtur në 'mesazhi_dekriptuar.txt'.");
                 }
-                System.out.println("Mesazhi i dekriptuar është ruajtur në 'mesazhi_dekriptuar.txt'.");
-            }
                 else if(option.equalsIgnoreCase("mesazh")) {
                     // Dekripto mesazhin
                     System.out.print("Shkruani mesazhin e enkriptuar (hex): ");
                     String encryptedHex = scanner.nextLine();
-                    cipher.init(Cipher.DECRYPT_MODE, key);
-                    byte[] decryptedBytes = cipher.doFinal(DatatypeConverter.parseHexBinary(encryptedHex));
-                    String decryptedMessage = new String(decryptedBytes, "UTF-8");
-                    System.out.println("Mesazhi i Dekriptuar: " + decryptedMessage);
+                    try {
+                        cipher.init(Cipher.DECRYPT_MODE, key);
+                        byte[] decryptedBytes = cipher.doFinal(DatatypeConverter.parseHexBinary(encryptedHex));
+                        String decryptedMessage = new String(decryptedBytes, "UTF-8");
+                        System.out.println("Mesazhi i Dekriptuar: " + decryptedMessage);
+                    } catch (javax.crypto.BadPaddingException | javax.crypto.IllegalBlockSizeException e) {
+                        // These exceptions are typically thrown on incorrect keys or corrupted data
+                        System.out.println("Qelsi per mesazhin e dhene nuk eshte i sakt!");
+                    } catch (Exception e) {
+                        System.err.println("Ndodhi një gabim gjatë dekriptimit: " + e.getMessage());
+                        e.printStackTrace();
+                    }
                 }
             }
 
