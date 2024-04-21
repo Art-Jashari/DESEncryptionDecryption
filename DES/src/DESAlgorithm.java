@@ -40,6 +40,10 @@ public class DESAlgorithm {
             if (mode.equalsIgnoreCase("enkripto")) {
                 System.out.print("Doni të enkriptoni nga file apo ta shenoni mesazhin? (file/mesazh) ");
                 String option = scanner.nextLine().trim();
+                while (!option.equalsIgnoreCase("file") && !option.equalsIgnoreCase("mesazh")) {
+                    System.out.print("Opsion i pavlefshëm. Ju lutemi shkruani 'mesazh' ose 'file': ");
+                    option = scanner.nextLine().trim();
+                }
                 if (option.equalsIgnoreCase("file")) {
                     // Enkripto mesazhin
                     System.out.print("Shkruani path-in e file-it që dëshironi të enkriptoni: ");
@@ -55,7 +59,7 @@ public class DESAlgorithm {
                     }
                     System.out.println("Mesazhi i enkriptuar është ruajtur në 'mesazhi_enkriptuar.txt'.");
                 }
-                else if(option.equalsIgnoreCase("mesazh")){
+                else {
                     System.out.print("Shkruani mesazhin që dëshironi të enkriptoni: ");
                     String message = scanner.nextLine();
                     cipher.init(Cipher.ENCRYPT_MODE, key);
@@ -63,9 +67,13 @@ public class DESAlgorithm {
                     String encryptedHex = DatatypeConverter.printHexBinary(encryptedBytes);
                     System.out.println("Mesazhi i Enkriptuar (Hex): " + encryptedHex);
                 }
-            } else if((mode.equalsIgnoreCase("dekripto"))) {
+            } else if(mode.equalsIgnoreCase("dekripto")) {
                 System.out.print("Doni të dekriptoni nga file apo ta shenoni mesazhin? (file/mesazh) ");
                 String option = scanner.nextLine().trim();
+                while (!option.equalsIgnoreCase("file") && !option.equalsIgnoreCase("mesazh")) {
+                    System.out.print("Opsion i pavlefshëm. Ju lutemi shkruani 'mesazh' ose 'file': ");
+                    option = scanner.nextLine().trim();
+                }
                 if (option.equalsIgnoreCase("file")) {
                     // Dekripto mesazhin
                     System.out.print("Shkruani path-in e file-it të enkriptuar (hex): ");
@@ -81,8 +89,7 @@ public class DESAlgorithm {
                     }
                     System.out.println("Mesazhi i dekriptuar është ruajtur në 'mesazhi_dekriptuar.txt'.");
                 }
-                else if(option.equalsIgnoreCase("mesazh")) {
-                    // Dekripto mesazhin
+                else {
                     System.out.print("Shkruani mesazhin e enkriptuar (hex): ");
                     String encryptedHex = scanner.nextLine();
                     try {
@@ -91,7 +98,6 @@ public class DESAlgorithm {
                         String decryptedMessage = new String(decryptedBytes, "UTF-8");
                         System.out.println("Mesazhi i Dekriptuar: " + decryptedMessage);
                     } catch (javax.crypto.BadPaddingException | javax.crypto.IllegalBlockSizeException e) {
-                        // These exceptions are typically thrown on incorrect keys or corrupted data
                         System.out.println("Qelsi per mesazhin e dhene nuk eshte i sakt!");
                     } catch (Exception e) {
                         System.err.println("Ndodhi një gabim gjatë dekriptimit: " + e.getMessage());
