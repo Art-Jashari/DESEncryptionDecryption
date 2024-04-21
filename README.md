@@ -1,4 +1,4 @@
-# File Encryption and Decryption Utility
+# File and String Encryption/Decryption using DES Algorithm implemented in Java
 
 ## University Details
 - **University**: University of Prishtina "Hasan Prishtina"
@@ -7,8 +7,6 @@
 - **Course**: Data Security 
 - **Semester**: 4th Semester
 
-## Project Title
-File and String Encryption/Decryption using DES Algorithm implemented in Java
 
 ## Contributors
 - [Art Kelmendi](<https://github.com/artkelmendi>)
