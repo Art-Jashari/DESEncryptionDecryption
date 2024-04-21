@@ -45,8 +45,8 @@ To run this project on your device, you will need:
 1. Clone the repository or download the Java files to your local machine.
 2. Open the terminal or command prompt.
 3. Navigate to the directory containing the Java files.
-4. Compile the Java program using `javac Main.java`.
-5. Run the program using `java Main`.
+4. Compile the Java program using `javac DESAlgorithm.java`.
+5. Run the program using `java DESAlgorithm`.
 6. Follow the on-screen prompts to either encrypt or decrypt a file or string.
 
 ## Project Results

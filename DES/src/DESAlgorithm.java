@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class Main {
+public class DESAlgorithm {
     public static void main(String[] args) {
         System.out.println("Welcome to the DES program.");
         Scanner scanner = new Scanner(System.in);
