@@ -17,7 +17,8 @@ File and String Encryption/Decryption using DES Algorithm using Java
 - [Armenije Sadikaj](<link-to-github-profile>)
 
 ## Supervisor
-- **Professor**: Mergim Hoti
+- **Professor**: Blerim Rexha
+- **Assistent:**: Mergim Hoti
 
 ## Project Description
 This Java-based project provides a utility for encrypting and decrypting files and strings using the DES encryption algorithm. The application allows users to input the path of a file or directly enter a string to be encrypted or decrypted. This utility can be useful for ensuring data security in digital communications.
